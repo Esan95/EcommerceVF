@@ -5,15 +5,28 @@
 {% endblock %}
 {% block body %}
 
-<form action="elimina" method="get"> {% csrf_token %}
-    <tr>
-        <td>Rut busqueda</td>
-        <td><input type="text" name="rut_busqueda" placeholder="Ingrese rut"/></td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" value="Eliminar persona"/></td>
-    </tr>
+
+
+
+
+<div class = "container">
+    <form action="elimina" method="get"> {% csrf_token %}
+    <div class="row g-3">
+        <div class="col-xs-12 col-sm-6">
+            <h2>Formulario eliminar clientes</h2>
+            <label for="">Rut a eliminar</label>
+            <input type="text" class="form-control" name="rut_busqueda" placeholder="Ingrese rut">
+
+         
+        </div>
+        <div class="col-xs-12">
+            <input class="btn btn-primary" type="submit" value="Eliminar persona">
+            <input type="reset" class="btn btn-danger" value="Limpiar">
+        </div>
+    </div>
 </form>
-<h1>{{msj}}</h1>
+<h3>{{msj}}</h3>
+</div>
+
 
 {% endblock %}
