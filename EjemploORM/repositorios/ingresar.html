@@ -1,0 +1,45 @@
+{% extends "base.html" %} 
+{% block titulo %} Esta es la página de inicio {% endblock %} 
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+{% block body %}
+
+<form action="registro" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Rut</td>
+            <td><input type="text" name="rut" placeholder="Ingrese rut"/></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre" placeholder="Ingrese nombre"/></td>
+        </tr>
+        <tr>
+            <td>Contraseña</td>
+            <td><input type="password" name="contrasenna" placeholder="Ingrese contraseña"/></td>
+        </tr>
+        <tr>
+            <td>Correo Electronico</td>
+            <td><input type="email" name="email" placeholder="Ingrese correo electrónico"/></td>
+        </tr>
+        <tr>
+            <td>Direccion</td>
+            <td><input type="text" name="direccion" placeholder="Ingrese dirección"/></td>
+        </tr>
+        <tr>
+            <td>Telefono</td>
+            <td><input type="text" name="telefono" placeholder="Ingrese telefono"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Ingresar"/>
+            </td>
+            <td>
+                <input type="reset" value="cancelar"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

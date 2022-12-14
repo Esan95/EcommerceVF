@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block titulo %} Esta es la pagina para ingresar productos {% endblock %} 
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+{% block body %}
+<br>
+<form action="" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <div class="col-xs-12 col-sm-6">
+        <br>
+
+        {{ form | crispy }}
+
+        <input type="submit" value="Agregar" class="btn btn-danger">
+        <input type="reset" class="btn btn-primary" value="Limpiar">
+    </div>
+
+</form>
+
+{% endblock %}

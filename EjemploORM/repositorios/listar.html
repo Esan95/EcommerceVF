@@ -1,0 +1,48 @@
+{% extends "base.html" %} 
+{% block titulo %} 
+Esta es la página de inicio 
+{% endblock %} 
+
+{% block body %}
+
+
+  
+<div class="container">
+    <h2 class="text-center">Lista de productos </h2>
+    <br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rut</th>
+          <th scope="col">Correo Electrónico</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Perfil</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for p in personas %}
+        <tr>
+            <td>{{p.rut}}</td>
+            <td>{{p.correo_electronico}}</td>
+            <td>{{p.nombre}}</td>
+            <td>{{p.contrasenna}}</td>
+            <td>{{p.direccion}}</td>
+            <td>{{p.telefono}}</td>
+            <td>{{p.perfil}}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+</div>
+ 
+
+
+{% endblock %}
+
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block titulo %} Esta es la página de inicio {% endblock %} 
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+{% block body %}
+
+<h1> se ha recibido el siguiente mensaje</h1>
+<p>{{msj}}</p>
+
+{% endblock %}

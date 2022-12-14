@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+{% block titulo %} Esta es la página de Login {% endblock %} 
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+{% block body %}
+
+<h1>Iniciar Sesión</h1>
+<form action="sesion" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Rut</td>
+            <td><input type="text" name="rut" placeholder="Ingrese rut"/></td>
+        </tr>
+        <tr>
+            <td>Contraseña</td>
+            <td><input type="password" name="contrasenna" placeholder="Ingrese contraseña"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Iniciar sesion"/>
+            </td>
+            <td>
+                <input type="reset" value="cancelar"/>
+            </td>
+        </tr>
+    </table>
+    {{mensaje}}
+</form>
+
+{% endblock %}

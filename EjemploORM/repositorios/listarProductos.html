@@ -1,0 +1,51 @@
+{% extends "base.html" %} 
+{% block titulo %} 
+Esta es la página de inicio 
+{% endblock %} 
+
+{% block body %}
+
+<h1>Lista de los Productos</h1>
+
+<div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            
+            {% for producto in productos %}
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{{ producto.thumbnail.url }}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{producto.name}}</h5>
+                                <!-- Product price-->
+                                ${{producto.price}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'detalleProducto' producto.id %}">Ver detalle</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+   
+</div>
+ 
+
+
+
+{% endblock %}
+
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+

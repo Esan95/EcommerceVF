@@ -1,0 +1,112 @@
+
+
+
+ <!-- Navigation-->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="#!">Prototipo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="listarProductos">Patrones</a></li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#!">Chalecos</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                      <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                  </ul>
+              </li>
+              {% if sesion_perfil == 'emprendedor' or sesion_perfil == 'admin' %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Productos</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="agregarProducto">Agregar Productos</a></li>
+                    <li><a class="dropdown-item" href="listarEditar">Editar o eliminar Productos</a></li>
+                </ul>
+              {% endif %}
+            </li>
+            {% if sesion_perfil == 'admin' %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Usuarios</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="ingresar">Ingresar Persona</a></li>
+                  <li><a class="dropdown-item" href="eliminar">Eliminar Persona</a></li>
+                  <li><a class="dropdown-item" href="listar">Listar Personas</a></li>
+                  <li><a class="dropdown-item" href="actualizar">Actualizar Persona</a></li>
+              </ul>
+            {% endif %}
+          </li>
+        </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+              <button class="btn btn-outline-dark" type="submit">
+                  <i class="bi-cart-fill me-1"></i>
+                  Cart
+                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+              </button>
+          </form>
+      </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      {% if sesion_activa == 'Activa' %}
+      <li class="nav-item">
+         <a class="nav-link" href="iniciar_sesion">Cerrar sesión</a>
+      </li>
+      {% elif session_activa == None %}
+      <li class="nav-item"><a class="nav-link" href="iniciar_sesion">Iniciar sesión</a></li>
+      <li class="nav-item"><a class="nav-link" href="ingresar">Registrate!</a></li>
+     {% endif %}
+    </ul>
+  
+  </div>
+</nav>
+<!-- Header-->
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+          <h1 class="display-4 fw-bolder">Prototipo Sitio Emprendimiento</h1>
+          <p class="lead fw-normal text-white-50 mb-0">Tienda de productos digitales</p>
+      </div>
+  </div>
+</header>
+
+
+<!--{% if sesion_activa == 'Activa' %}
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="ingresar">Ingresar Persona</a>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="eliminar">Eliminar Persona</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="listar">Listar Personas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="actualizar">Actualizar Persona</a>
+      </li>
+    </ul>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="iniciar_sesion">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+  {% elif session_activa == None %}
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="iniciar_sesion">Iniciar sesión</a>
+      </li>
+    </ul>
+  </div>
+  {% endif %}
+-->

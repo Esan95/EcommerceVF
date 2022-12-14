@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+{% block titulo %} Esta es la página de inicio {% endblock %} 
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+{% block body %}
+
+<form action="elimina" method="get"> {% csrf_token %}
+    <tr>
+        <td>Rut busqueda</td>
+        <td><input type="text" name="rut_busqueda" placeholder="Ingrese rut"/></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="Eliminar persona"/></td>
+    </tr>
+</form>
+<h1>{{msj}}</h1>
+
+{% endblock %}

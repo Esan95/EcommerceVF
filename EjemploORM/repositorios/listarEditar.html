@@ -1,0 +1,46 @@
+{% extends "base.html" %} 
+{% block titulo %} 
+Esta es la página de inicio 
+{% endblock %} 
+
+{% block body %}
+
+
+  
+<div class="container">
+    <h2 class="text-center">Lista de productos </h2>
+    <br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">precio</th>
+          <th scope="col">Opciones</th>
+
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for producto in productos %}
+        <tr>
+          <td>{{producto.name}}</td>
+          <td>{{producto.price}}</td>
+          <td>
+                <a href="{% url 'modificarProducto' producto.id %}" class="btn btn-info btn-sm">modificar</a>
+                <a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger btn-sm">eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+</div>
+ 
+
+
+{% endblock %}
+
+{% block navegador%}
+    {% include "navegador.html"%}
+{% endblock %}
+

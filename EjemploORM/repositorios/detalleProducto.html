@@ -1,0 +1,105 @@
+{% extends "base.html" %} 
+{% block titulo %} 
+Detalle Producto
+{% endblock %} 
+
+{% block body %}
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ producto.thumbnail.url }}" alt="..." /></div>
+            <div class="col-md-6">
+                <div class="small mb-1">{{producto.id}}</div>
+                <h1 class="display-5 fw-bolder">{{producto.name}}</h1>
+                <div class="fs-5 mb-5">
+                    <span>Precio: {{producto.price}}</span>
+                </div>
+                <p class="lead">Descripción: <br> {{producto.description}}</p>
+                <div class="d-flex">
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        Comprar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block navegador%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Prototipo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Volver</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Chalecos</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                    </ul>
+                </li>
+                {% if sesion_perfil == 'emprendedor' or sesion_perfil == 'admin' %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Productos</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="agregarProducto">Agregar Productos</a></li>
+                      <li><a class="dropdown-item" href="listarEditar">Editar o eliminar Productos</a></li>
+                  </ul>
+                {% endif %}
+              </li>
+              {% if sesion_perfil == 'admin' %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin Usuarios</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="ingresar">Ingresar Persona</a></li>
+                    <li><a class="dropdown-item" href="eliminar">Eliminar Persona</a></li>
+                    <li><a class="dropdown-item" href="listar">Listar Personas</a></li>
+                    <li><a class="dropdown-item" href="actualizar">Actualizar Persona</a></li>
+                </ul>
+              {% endif %}
+            </li>
+          </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if sesion_activa == 'Activa' %}
+        <li class="nav-item">
+           <a class="nav-link" href="iniciar_sesion">Cerrar sesión</a>
+        </li>
+        {% elif session_activa == None %}
+       {% endif %}
+      </ul>
+    
+    </div>
+  </nav>
+  <!-- Header-->
+  <header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Prototipo Sitio Emprendimiento</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Tienda de productos digitales</p>
+        </div>
+    </div>
+  </header>
+{% endblock %}
