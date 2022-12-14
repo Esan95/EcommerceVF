@@ -40,7 +40,7 @@ DEBUG = True
 #IMPORTANTE
 #---------------------------------------------------------------------------------------------------
 #  DESCOMENTAR PARA RAILWAY
-ALLOWED_HOSTS = ['ecommerce-production-72bc.up.railway.app']
+ALLOWED_HOSTS = ['ecommercevf-production.up.railway.app']
 
 # USO SOLO LOCAL
 # ALLOWED_HOSTS = []
